@@ -2,8 +2,8 @@
   * Created by leehwangchun on 2016. 10. 28..
   */
 
-import org.apache.http.client.methods.{CloseableHttpResponse, HttpGet}
-import org.apache.http.impl.client.{CloseableHttpClient, HttpClients}
+import org.apache.http.client.methods.HttpGet
+import org.apache.http.impl.client.HttpClients
 import org.apache.http.util.EntityUtils
 
 class Account() {
