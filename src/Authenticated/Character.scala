@@ -8,12 +8,14 @@ import org.apache.http.util.EntityUtils
   * Created by leehwangchun on 2016. 10. 29..
   */
 class Character {
-  val urlString = "https://api.guildwars2.com/v2/characters?access_token="
+  val urlString = "https://api.guildwars2.com/v2/characters"
 
   def Request (apiKey : String): Unit = {
     val httpClient = HttpClients.createDefault()
     val httpRequest = new HttpGet(urlString + apiKey)
     val response = httpClient.execute(httpRequest)
+
+    httpRequest.addHeader("Authorization", "Bearer " + apiKey)
 
     try {
       val entity = response.getEntity()

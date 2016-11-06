@@ -9,12 +9,14 @@ import org.apache.http.impl.client.HttpClients
 import org.apache.http.util.EntityUtils
 
 class Account {
-  val urlString : String = "https://api.guildwars2.com/v2/account?access_token="
+  val urlString : String = "https://api.guildwars2.com/v2/account"
 
   def Request (apiKey : String): Unit = {
     val httpClient = HttpClients.createDefault()
     val httpRequest = new HttpGet(urlString + apiKey)
     val response = httpClient.execute(httpRequest)
+
+    httpRequest.addHeader("Authorization", "Bearer " + apiKey)
 
     try {
       val entity = response.getEntity()
