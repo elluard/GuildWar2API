@@ -1,12 +1,8 @@
 package Authenticated
 
-import org.apache.http.{Consts, HttpEntity}
-import org.apache.http.client.methods.{HttpGet, HttpPost}
-import org.apache.http.entity.{ContentType, StringEntity}
+import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.HttpClients
-import org.apache.http.message.BasicNameValuePair
 import org.apache.http.util.EntityUtils
-import org.apache.http.client.entity.UrlEncodedFormEntity
 
 /**
   * Created by leehwangchun on 2016. 11. 6..

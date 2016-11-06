@@ -10,12 +10,11 @@ import org.apache.http.util.EntityUtils
 class Character {
   val urlString = "https://api.guildwars2.com/v2/characters"
 
-  def Request (apiKey : String): Unit = {
+  def Request (apiKey : String, characterName : String = null): Unit = {
     val httpClient = HttpClients.createDefault()
-    val httpRequest = new HttpGet(urlString + apiKey)
-    val response = httpClient.execute(httpRequest)
-
+    val httpRequest = if(characterName == null) new HttpGet(urlString) else new HttpGet(urlString + "/" + characterName)
     httpRequest.addHeader("Authorization", "Bearer " + apiKey)
+    val response = httpClient.execute(httpRequest)
 
     try {
       val entity = response.getEntity()

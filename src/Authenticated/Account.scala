@@ -13,10 +13,10 @@ class Account {
 
   def Request (apiKey : String): Unit = {
     val httpClient = HttpClients.createDefault()
-    val httpRequest = new HttpGet(urlString + apiKey)
-    val response = httpClient.execute(httpRequest)
-
+    val httpRequest = new HttpGet(urlString)
     httpRequest.addHeader("Authorization", "Bearer " + apiKey)
+
+    val response = httpClient.execute(httpRequest)
 
     try {
       val entity = response.getEntity()
